@@ -1,0 +1,20 @@
+doctype html
+html(lang='en-US')
+    include head.pug
+    
+    body
+        include nav.pug
+        
+        div.container
+            article
+                header
+                    h3.text-center My Polls
+                    p.text-center This is the list of polls you've created so far.  Want to get rid of one?  Go ahead and trash it.  Got another burning question?  Then add a new poll!
+                    div.text-center
+                        a(href='/create' class='btn btn-default') Add Poll
+                    section
+                        div.flex-container
+        
+        script(type='text/javascript' src='/common/ajax-functions.js')
+        script(type='text/javascript' src='/controllers/myPollHandler.client.js')
+        script(type='text/javascript' src='/controllers/userContoller.client.js')

@@ -1,0 +1,28 @@
+doctype html
+html(lang='en-US')
+    include head.pug
+    
+    body
+        include nav.pug
+        div.container
+            article
+                header
+                    h3.text-center Create a Poll
+                    div.text-center
+                section
+                    div.flex-container
+                        form(method='POST' action='/api/poll/create' id='create-poll-form')
+                            div.form-group#question
+                                label(for='pollDisplayName') Poll Question
+                                input(type='text' class='form-control' name='pollDisplayName' placeholder='Enter your question' value='')
+                            div.form-gruop#answers
+                                label(for='choice1') Answers
+                                input(type='text' class='form-control' name='choice' value='' placeholder='Answer choice')
+                                input(type='text' class='form-control' name='choice' value='' placeholder='Answer choice')
+                            button(type='submit' class='btn btn-success' id='submit') Submit
+                            button(type='button' class='btn btn-primary' id='add-option') Add Answer
+
+        
+        script(type='text/javascript' src='/common/ajax-functions.js')
+        script(type='text/javascript' src='/controllers/newPollHandler.client.js')
+        script(type='text/javascript' src='/controllers/userContoller.client.js')

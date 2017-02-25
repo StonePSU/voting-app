@@ -1,0 +1,86 @@
+body {
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+.flex-container {
+    justify-content: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 980px;
+    padding: 1.5rem;
+}
+
+.flex-container > p {
+    color: #ff3333;
+    font-size: 1.5rem;
+}
+
+.flex-item {
+  border-radius: .5rem;
+  height: 250px;
+  margin: .375rem .375rem;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem;
+  width: 250px;
+}
+
+.red-bg {
+    background-color: #ff3333;
+    color: #fff;
+}
+
+.flex-item  a {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.flex-item  a  p {
+    color: #fff;
+    margin-left: .5rem;
+    margin-top: .5rem;
+    font-size: 2rem;
+}
+
+.flex-item  a  aside {
+    color: #fff;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: .625rem;
+  bottom: .625rem;
+}
+
+.banner {
+    min-height: 40vh;
+    max-width: 100%;
+    padding: 3rem;
+    margin-top: -20px;
+}
+
+.banner h1 {
+    margin-bottom: 2em;
+}
+
+.banner p {
+    font-size: 2rem;
+    max-width: 60%;
+    margin: 0px auto 20px auto;
+}
+
+.home-content {
+    margin-top: 4rem;
+}

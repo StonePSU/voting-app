@@ -1,0 +1,27 @@
+doctype html
+html(lang='en-US')
+    include head.pug
+    
+    body
+        include nav.pug
+        div
+            article
+                header(class='text-center banner red-bg')
+                    h1.text-center Have Your Say!
+                    p Are you interested in what other people think?  No? Yeah, me neither. But I've built a cool app for you to find out the answers to all the questions you never cared to ask.
+        div(class='container home-content')
+            div.row
+                div(class='col-xs-12 col-lg-4 text-center')
+                    i(class='fa fa-check-square-o fa-3x' aria-hidden='true')
+                    h2 Vote
+                    p Browse through the list of polls, choose one and vote wherever you feel like it.
+                div(class='col-xs-12 col-lg-4 text-center')
+                    i(class='fa fa-wrench fa-3x' aria-hidden='true')
+                    h2 Create
+                    p Log in and create your own polls to share with your friends.  And delete the ones you made when you were drunk.
+                div(class='col-xs-12 col-lg-4 text-center')
+                    i(class='fa fa-share-square-o fa-3x' aria-hidden='true')
+                    h2 Share
+                    p Want to see how others feel?  Go ahead and send them a link to any poll and then watch how they vote.
+    script(type='text/javascript' src='/common/ajax-functions.js')
+    script(type='text/javascript' src='/controllers/userContoller.client.js')

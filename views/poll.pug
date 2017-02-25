@@ -1,0 +1,25 @@
+doctype html
+html(lang='en-US')
+    include head.pug
+    
+    body
+        include nav.pug
+        div.container-fluid
+            article
+                header
+                    h2.text-center Have Your Say!
+        div.container
+            article
+                header
+                    h3.text-center Polls
+                section
+                    div.flex-container
+                        div.flex-item-form
+                            form(method='POST' action='/api/poll' id = 'poll-form')
+                                div.form-group  
+                                button(type='submit' class='btn btn-primary' id='submit') Vote!
+                        div.error-message
+        
+        script(type='text/javascript' src='/common/ajax-functions.js')
+        script(type='text/javascript' src='/controllers/poll.client.js')
+        script(type='text/javascript' src='/controllers/userContoller.client.js')

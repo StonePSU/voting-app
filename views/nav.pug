@@ -1,0 +1,28 @@
+nav(class='navbar navbar-inverse')
+    div.container-fluid
+        div.navbar-header
+            button(type='button' class='navbar-toggle' data-toggle='collapse' data-target='#myNavbar')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a(class='navbar-brand' href='/') Have Your Say
+        div(class='collapse navbar-collapse' id='myNavbar')
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href='/') Home
+                li
+                    a(href='/polls') Polls
+                li
+                    a(href='/login' id='signin-menu')
+                        i(class='fa fa-sign-in')
+                        | &nbsp;Sign In
+                li.dropdown#profile-menu
+                    a(class='dropdown-toggle' data-toggle='dropdown' href='#' id='userid') User ID
+                        span.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/myPolls') My Polls
+                        li
+                            a(href='/logout')
+                                i(class='fa fa-sign-out' aria-hidden='true')
+                                |&nbsp;Logout

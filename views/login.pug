@@ -1,0 +1,21 @@
+doctype html
+html(lang='en-US')
+    include head.pug
+    
+    body
+        include nav.pug
+        
+        div.container-fluid
+            section
+                header
+                h2.text-center Have Your Say!
+        div.container
+            section
+                header.text-center
+                    p You need to be logged in to do the cool stuff like create your own polls.  So what are you waiting for?
+                    a(href='/auth/facebook')
+                        div.btn.btn-primary.text-center
+                            i(class='fa fa-facebook' aria-hidden='true')
+                            | &nbsp;Login with Facebook
+        script(type='text/javascript' src='/common/ajax-functions.js')
+        script(type='text/javascript' src='/controllers/userContoller.client.js')

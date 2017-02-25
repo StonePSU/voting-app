@@ -1,0 +1,22 @@
+doctype html
+html(lang='en-US')
+    include head.pug
+    
+    body
+        include nav.pug
+        div.container-fluid
+            article
+                header
+                    h2.text-center Have Your Say!
+        div.container
+            article
+                header
+                    h3.text-center All Polls
+                    p.text-center Here's a list of all the polls that have been created so far.  Don't find one you like? Then log in and create your own!
+                section
+                    div.flex-container
+                        div.flex-item
+        
+        script(type='text/javascript' src='/common/ajax-functions.js')
+        script(type='text/javascript' src='/controllers/pollHandler.client.js')
+        script(type='text/javascript' src='/controllers/userContoller.client.js')
