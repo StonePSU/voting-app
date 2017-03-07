@@ -9,7 +9,7 @@
         
         obj.forEach(function(item) {
             html += '<div class="flex-item red-bg">' +
-                            '<a href="poll.html?p=' + item.pollName + '">' +
+                            '<a href="/poll/' + item.pollName + '">' +
                             '<p><strong>Question: </strong><span class="poll-question">' + item.pollDisplayName + '</span></p>' +
                             '<aside><strong>Created By: </strong><span class="poll-created-by">' + item.pollCreatedBy + '</span></aside>' +
                            '</a>'+

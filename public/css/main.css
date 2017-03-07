@@ -15,23 +15,44 @@ body {
     padding: 1.5rem;
 }
 
-.flex-container > p {
-    color: #ff3333;
-    font-size: 1.5rem;
+.flex-item {
+    border-radius: .5rem;
+    height: 250px;
+    margin: .375rem .375rem;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+    width: 250px;
 }
 
-.flex-item {
-  border-radius: .5rem;
-  height: 250px;
-  margin: .375rem .375rem;
-  overflow: hidden;
-  position: relative;
-  padding: 1rem;
-  width: 250px;
+#add-poll-btn {
+    background-color: #fff;
+    border: 3px dashed gray;
+    box-sizing: border-box;
+    color: #000;
+    height: 250px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.flex-item-form {
+    border-radius: .5rem;
+    min-height: 250px;
+    margin: .375rem .375rem;
+    overflow: auto;
+    position: relative;
+    padding: 2rem;
+    width: 350px;
 }
 
 .red-bg {
     background-color: #ff3333;
+    color: #fff;
+}
+
+.purple-bg {
+    background-color: #6E0DD0;
     color: #fff;
 }
 
@@ -83,4 +104,14 @@ body {
 
 .home-content {
     margin-top: 4rem;
+}
+
+.chart {
+    display: inline;
+    max-width: 800px;
+    max-height: 800px;
+}
+
+.navbar {
+    color: #fff !important;
 }

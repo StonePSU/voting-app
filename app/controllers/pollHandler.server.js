@@ -9,28 +9,9 @@ function pollHandler() {
     this.getAllPolls = function(req, res) {
         Polls.find({}, {_id: false}).select("pollName pollDisplayName pollCreatedBy").exec(function(err, data) {
             if (err) throw err;
-                // console.log(`Poll Name: ${data[0].pollName}`);
-                // console.log(data);
+
                 if (data.length===0) {
                     res.json(noResults);
-                    // let's create a random poll
-                    var newPoll = new Polls({
-                        pollName: "NEWPOLL",
-                        pollDisplayName: "what's your favorite color?",
-                        pollCreatedBy: "Matt Krell",
-                        choices: [{
-                            choiceTitle: "Red",
-                            choiceVotes: 0
-                        },
-                        {
-                            choiceTitle: "Blue",
-                            choiceVotes: 1
-                        }]
-                    })
-                    
-                    newPoll.save(function(err) {
-                        if (err) throw err;
-                    })
                 } else {
                     res.json(data);
                 }
@@ -54,19 +35,15 @@ function pollHandler() {
     };
     
     this.getUserPolls = function(req, res) {
-        //console.log(req.user);
         if (req.isAuthenticated()) {
             Polls.find({}, {_id: false})
                 .where('pollCreatedBy')
                 .equals(req.user.facebook.displayname)
                 .exec(function(err, data) {
                     if (err) throw err;
-                    //console.log(data);
                     if (data.length === 0) {
-                        //console.log("about to send no results");
                         res.json(noResults);
                     } else {
-                        //console.log("about to send poll data");
                         res.json(data);
                     }
                 });
@@ -74,7 +51,6 @@ function pollHandler() {
     };
     
     this.addVote = function(req, res) {
-        //console.log(req.body);
         
         if (req.body) {
             Polls.findOne({"pollName": req.body.pollName}).exec(function(err, data) {
@@ -88,7 +64,8 @@ function pollHandler() {
                data.save(function(err) {
                   if (err) throw err; 
                });
-               res.send(JSON.stringify(data));
+               //res.send(JSON.stringify(data));
+               res.redirect("/poll/" + req.body.pollName + "/results");
             });
         } else {
             res.sendStatus(500).send("Something bad happened");
@@ -108,7 +85,6 @@ function pollHandler() {
     this.createPoll = function(req, res) {
         if (req.isAuthenticated()) {
            if (req.body) {
-               //console.log(req.body);
                var choices = req.body.choice;
                var cs = [];
                
@@ -133,6 +109,29 @@ function pollHandler() {
                res.sendStatus(500).send("Oops, couldn't create the new poll.");
            }
         }
+    }
+    
+    this.addPollChoices = function(req, res) {
+        var pollName = req.params.id || null;
+        
+        if (pollName) {
+            
+            var obj = req.body;
+            var arrToUpdate = [];
+            
+            obj.forEach(function(item) {
+               arrToUpdate.push({choiceTitle: item.choiceTitle, choiceVotes: item.choiceVotes}) ;
+            });
+            
+           Polls.update({pollName: pollName}, {$pushAll: {choices: arrToUpdate}}).exec(function(err, results) {
+                if (err) throw err;
+                
+                res.json(noResults);
+            });
+            
+        }
+        
+        
     }
     
 }

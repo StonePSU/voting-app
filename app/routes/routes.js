@@ -24,7 +24,8 @@ module.exports = function(app, passport) {
     
     app.route("/api/poll/:id")
         .get(pollHandler.getPollByName)
-        .delete(pollHandler.deleteUserPoll);
+        .delete(pollHandler.deleteUserPoll)
+        .patch(pollHandler.addPollChoices);
         
     app.route("/api/user/")
         .get(pollHandler.getUserPolls);
@@ -63,7 +64,17 @@ module.exports = function(app, passport) {
     app.route("/poll.html")
         .get(function(req, res) {
            // res.sendFile(process.cwd() + "/public/poll.html");
-           res.render("poll");
+           res.render("poll")
+        });
+        
+    app.route("/poll/:id")
+        .get(function(req, res) {
+            res.render("poll");
+        })
+        
+    app.route("/poll/:id/results")
+        .get(function(req, res) {
+           res.render("results"); 
         });
         
     app.route("/myPolls")

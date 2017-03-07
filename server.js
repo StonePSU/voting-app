@@ -18,7 +18,6 @@ app.use("/controllers", express.static(process.cwd() + "/app/controllers"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine', 'pug');
-
 app.use(session({
     secret: 'secretClementine',
     resave: false,
@@ -27,6 +26,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use("*", function(req, res, next) {
    console.log(`Request.Method: ${req.method}`);

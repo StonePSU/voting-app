@@ -16,9 +16,12 @@ html(lang='en-US')
                     div.flex-container
                         div.flex-item-form
                             form(method='POST' action='/api/poll' id = 'poll-form')
-                                div.form-group  
-                                button(type='submit' class='btn btn-primary' id='submit') Vote!
-                        div.error-message
+                                div.form-group 
+                                div.text-center
+                                    button(type='submit' class='btn btn-disabled' id='submit' disabled) Vote!
+                                    button(type='button' class='btn btn-primary' id='add-option') Add Answer
+                                    button(type='button' class='btn btn-default' id='save-poll' disabled) Save Poll
+                            div.error-message
         
         script(type='text/javascript' src='/common/ajax-functions.js')
         script(type='text/javascript' src='/controllers/poll.client.js')

@@ -10,17 +10,22 @@ html(lang='en-US')
                     h3.text-center Create a Poll
                     div.text-center
                 section
-                    div.flex-container
-                        form(method='POST' action='/api/poll/create' id='create-poll-form')
-                            div.form-group#question
-                                label(for='pollDisplayName') Poll Question
-                                input(type='text' class='form-control' name='pollDisplayName' placeholder='Enter your question' value='')
-                            div.form-gruop#answers
-                                label(for='choice1') Answers
-                                input(type='text' class='form-control' name='choice' value='' placeholder='Answer choice')
-                                input(type='text' class='form-control' name='choice' value='' placeholder='Answer choice')
-                            button(type='submit' class='btn btn-success' id='submit') Submit
-                            button(type='button' class='btn btn-primary' id='add-option') Add Answer
+                    div.container
+                        div.row
+                            div.col-lg-12
+                                form(method='POST' action='/api/poll/create' id='create-poll-form')
+                                    div.form-group#question
+                                        label(for='pollDisplayName') Poll Question
+                                        input(type='text' class='form-control' name='pollDisplayName' placeholder='Enter your question' value='' id='pollQuestion')
+                                    div.form-gruop#answers
+                                        label(for='choice1') Answers
+                                        input(type='text' class='form-control' name='choice' value='' placeholder='Answer choice')
+                                        input(type='text' class='form-control' name='choice' value='' placeholder='Answer choice')
+                                        
+                                    div.text-center
+                                        <br>
+                                        button(type='submit' class='btn btn-disabled' id='submit' disabled) Submit
+                                        button(type='button' class='btn btn-primary' id='add-option') Add Answer
 
         
         script(type='text/javascript' src='/common/ajax-functions.js')

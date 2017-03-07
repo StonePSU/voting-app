@@ -1,0 +1,23 @@
+doctype html
+html(lang='en-US')
+    head
+        include head.pug
+    
+    body
+        include nav.pug
+
+        div.container
+            article
+                header
+                    h2.text-center Poll Results
+                    p.text-center Here are the results of the poll.  
+                    p.text-center  Want to share this poll with your friends?  Copy the url: <br><span id="pollURL" style="display:inline"></span>
+                section
+                    div.text-center
+                        canvas(id='myChart' width='400px' height='400px' style='display:inline')
+                    
+        script(type='text/javascript' src='/common/ajax-functions.js')
+        script(type='text/javascript' src='/common/randomColor.js')
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js')
+        script(type='text/javascript' src='/controllers/resultsHandler.client.js')
+        script(type='text/javascript' src='/controllers/userContoller.client.js')

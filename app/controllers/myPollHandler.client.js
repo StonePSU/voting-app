@@ -3,7 +3,7 @@
 (function() {
     
     var populateMyPolls = function populateMyPolls(data) {
-        console.log(data);
+
         var obj = JSON.parse(data);
         var container = document.querySelector(".flex-container");
         var html=""
@@ -17,8 +17,8 @@
         
         if (pn) {
             obj.forEach(function(item) {
-                html += '<div class="flex-item red-bg" id="' + item.pollName + '">' +
-                                '<a href="poll.html?p=' + item.pollName + '">' +
+                html += '<div class="flex-item purple-bg" id="' + item.pollName + '">' +
+                                '<a href="/poll/' + item.pollName + '/results">' +
                                 '<p><strong>Question: </strong><span class="poll-question">' + item.pollDisplayName + '</span></p>' +
                                 '<aside>Created By: <span class="poll-created-by">' + item.pollCreatedBy + '</span></aside>' +
                                '</a><button type="button" class="delete-btn" title="Delete Poll"><i class="fa fa-2x fa-trash"></i></button>'+
